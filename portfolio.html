@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Details</title>
+    <link rel="stylesheet" href="portfolio.css">
+
+</head>
+<body>
+    
+    <div class="navbar">
+        <a href="home.html">Home</a>
+        <a href="index.html">Feedback</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="content">
+        <h1>Our Portfolio</h1>
+    </div>
+
+    <div id="formDetails">
+
+    </div>
+
+    <script>
+
+        var savedDetails = localStorage.getItem('feedbackFormDetails');
+
+
+        if (savedDetails) {
+ 
+            var formDetails = JSON.parse(savedDetails);
+
+
+            var detailsDiv = document.getElementById('formDetails');
+            detailsDiv.innerHTML = `
+                <p><strong>Name:</strong> ${formDetails.name}</p>
+                <p><strong>Email:</strong> ${formDetails.email}</p>
+                <!-- Display other form fields similarly -->
+            `;
+        } else {
+
+            var detailsDiv = document.getElementById('formDetails');
+            detailsDiv.innerHTML = '<p>No form details found.</p>';
+        }
+    </script>
+</body>
+</html>
